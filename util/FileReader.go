@@ -2,14 +2,13 @@ package util
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 )
 
-func readFile(filename string) {
+func ReadFile(filename string) ([]string, error) {
 	file, err := os.Open(filename)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 	defer file.Close()
 
@@ -22,8 +21,8 @@ func readFile(filename string) {
 	}
 
 	if err := scanner.Err(); err != nil {
-		panic(err)
+		return nil, err
 	}
 
-	return lines
+	return lines, nil
 }

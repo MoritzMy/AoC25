@@ -1,10 +1,11 @@
 package main
 
 import (
-	"AoC2025/util"
 	"fmt"
 	"strconv"
 	"time"
+
+	"AoC2025/util"
 )
 
 func main() {
@@ -19,7 +20,7 @@ func main() {
 }
 
 func star1() {
-	lines, err := util.ReadFile("input/day1.txt")
+	lines, err := ReadFile("input/day1.txt")
 
 	if err != nil {
 		panic(err)
@@ -47,7 +48,7 @@ func star1() {
 }
 
 func star2() {
-	lines, err := util.ReadFile("input/day1.txt")
+	lines, err := ReadFile("input/day1.txt")
 
 	if err != nil {
 		panic(err)
