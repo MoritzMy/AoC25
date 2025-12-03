@@ -4,11 +4,18 @@ import (
 	"AoC2025/util"
 	"fmt"
 	"math"
+	"time"
 )
 
 func main() {
+	start := time.Now()
 	star1()
+	end := time.Now()
+	fmt.Println("Solution 1:", end.Sub(start))
+	start = time.Now()
 	star2()
+	end = time.Now()
+	fmt.Println("Solution 2:", end.Sub(start))
 }
 
 func star1() {
