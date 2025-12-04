@@ -10,7 +10,7 @@ func main() {
 	star2()
 }
 
-func star1() {
+func convertInput() [][]rune {
 	raw, err := util.ReadFile("input/day4.txt")
 	if err != nil {
 		panic(err)
@@ -20,6 +20,12 @@ func star1() {
 	for i := range raw {
 		paperMap[i] = []rune(raw[i])
 	}
+
+	return paperMap
+}
+
+func star1() {
+	paperMap := convertInput()
 
 	count := 0
 	count = getSinglePosition(paperMap)
@@ -27,15 +33,7 @@ func star1() {
 }
 
 func star2() {
-	raw, err := util.ReadFile("input/day4.txt")
-	if err != nil {
-		panic(err)
-	}
-
-	paperMap := make([][]rune, len(raw))
-	for i := range raw {
-		paperMap[i] = []rune(raw[i])
-	}
+	paperMap := convertInput()
 
 	count := 0
 
@@ -75,7 +73,7 @@ func validateSurrounding(paperMap [][]rune, x int, y int) bool {
 
 	for yy := lowY; yy <= highY; yy++ {
 		for xx := lowX; xx <= highX; xx++ {
-			if paperMap[yy][xx] == '@' || paperMap[yy][xx] == 'x' {
+			if paperMap[yy][xx] == '@' {
 				count++
 			}
 		}
